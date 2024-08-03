@@ -1,6 +1,6 @@
 import { api } from "@/lib/axios";
 import { type Timestamp } from "./timestamp";
-import { type Property } from "./property";
+// import { type Property } from "./property";
 import { type Pagination } from "./pagination";
 
 export interface Client extends Timestamp {
@@ -11,7 +11,7 @@ export interface Client extends Timestamp {
   CPF_CNPJ: string
   contract_link: string
   UserId: number
-  Properties?: Property[]
+  Properties?: string[]
 }
 
 export interface ClientDashboardStats {
@@ -25,7 +25,7 @@ export interface Clients extends Pagination<Client[]> {}
 
 export interface ClientDashboard {
   client: Client,
-  properties: Pagination<Property[]>
+  // properties: Pagination<Property[]>
   dashboardStats: ClientDashboardStats
 }
 

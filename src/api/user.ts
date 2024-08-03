@@ -1,5 +1,5 @@
 import { api } from "@/lib/axios";
-import { type Address } from "./property";
+// import { type Address } from "./property";
 
 export interface User {
   email: string
@@ -11,7 +11,7 @@ export interface LoginData {
   password: string
 }
 
-export interface RegisterUserData extends LoginData, Partial<Address> {
+export interface RegisterUserData extends LoginData {
   name: string
   phone: string
   RG: string

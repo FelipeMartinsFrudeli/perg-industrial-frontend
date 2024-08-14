@@ -1,4 +1,4 @@
-import { InputField } from "./form-fields"
+import { InputField } from "../form-fields"
 
 
 export function StartForm({ form }: any) {

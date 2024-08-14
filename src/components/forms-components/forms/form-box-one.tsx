@@ -1,5 +1,5 @@
 import { AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { InputField, TextAreaField } from "./form-fields"
+import { InputField, TextAreaField } from "../form-fields"
 
 export function FormBoxOne({ form }: any) {
     return (

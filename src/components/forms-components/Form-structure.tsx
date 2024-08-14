@@ -1,7 +1,9 @@
 import { Title } from "./title.tsx";
-import { StartForm } from "./start-form.tsx";
-import { FormBoxOne } from "./form-box-one.tsx";
-import { FormBoxTwo } from "./form-box-two.tsx";
+import { StartForm } from "./forms/start-form.tsx";
+import { FormBoxOne } from "./forms/form-box-one.tsx";
+import { FormBoxTwo } from "./forms/form-box-two.tsx";
+import { FormBoxThree } from "./forms/form-box-three.tsx";
+import { FormBoxFour } from "./forms/form-box-four.tsx";
 import '../../assets/styles/forms.css'
 import '../../index.css'
 import { FormSchema } from "@/schemas/form-schema.ts";
@@ -33,6 +35,23 @@ export const Register_RNC = () => {
             emitente: "",
             selectContencao: "",
             contencao: "",
+            locProducao: "",
+            qtdProducao: "",
+            locRecebimento: "",
+            qtdRecebimento: "",
+            locExpedicao: "",
+            qtdExpedicao: "",
+            locEstoque: "",
+            qtdEstoque: "",
+            locTransito: "",
+            qtdTransito: "",
+            locFornecedor: "",
+            qtdFornecedor: "",
+            locCliente: "",
+            qtdCliente: "",
+            locPecasEmCampo: "",
+            qtdPecasEmCampo: "",
+            itemsDisposicao: ["1"],
         },
     });
     const onSubmit =  async (data: any) => {
@@ -50,6 +69,8 @@ export const Register_RNC = () => {
                             <Accordion type="single" collapsible className="col-span-10 col-start-2">
                                 <FormBoxOne form={form} />
                                 <FormBoxTwo form={form} />
+                                <FormBoxThree form={form}/>
+                                <FormBoxFour form={form}/>
                             </Accordion>
                             <Button type="submit" className="col-span-2 col-start-6">Enviar</Button>
                         </form>

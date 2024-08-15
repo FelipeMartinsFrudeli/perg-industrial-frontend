@@ -41,13 +41,13 @@ export const FormSchema = z.object({
     }),
 
 
-    selectContencao: z.enum(['sim','nao'], {
+    selectContencao: z.enum(['sim', 'nao'], {
         message: "Alguma opção deve ser selecionada",
     }),
     contencao: z.string().min(1, {
-        message: "O motivo deve ser digitado.",
+        message: "Não pode estar em branco",
     }),
-  
+
     locProducao: z.string().min(1, {
         message: "Não pode estar em branco",
     }),
@@ -96,9 +96,305 @@ export const FormSchema = z.object({
     qtdPecasEmCampo: z.string().min(1, {
         message: "Não pode estar em branco",
     }),
-
+    
     itemsDisposicao: z.array(z.string()).refine((value) => value.some((item) => item), {
         message: "Você deve selecionar algo",
     }),
 
+    imagemNaoConforme: z.instanceof(File)
+        .refine(file => file.type.startsWith('image/'), {
+            message: 'O arquivo deve ser uma imagem',
+        })
+        .refine(file => file.size <= 5 * 1024 * 1024, {
+            message: 'A imagem deve ter no máximo 5MB',
+        }),
+
+    analise: z.string().min(2, {
+        message: "Não pode estar em branco",
+    }),
+    dataAnalise: z.string().min(2, {
+        message: "Não pode estar em branco",
+    }),
+    maoDeObra: z.string().min(2, {
+        message: "Não pode estar em branco",
+    }),
+    metodoDeTrabalho: z.string().min(2, {
+        message: "Não pode estar em branco",
+    }),
+    maquina: z.string().min(2, {
+        message: "Não pode estar em branco",
+    }),
+    meioAmbiente: z.string().min(2, {
+        message: "Não pode estar em branco",
+    }),
+    materiaPrima: z.string().min(2, {
+        message: "Não pode estar em branco",
+    }),
+    medicao: z.string().min(2, {
+        message: "Não pode estar em branco",
+    }),
+
+    porqueHouve1: z.string().min(2, {
+        message: "Não pode estar em branco",
+    }),
+    porqueHouve2: z.string().min(2, {
+        message: "Não pode estar em branco",
+    }),
+    porqueHouve3: z.string().min(2, {
+        message: "Não pode estar em branco",
+    }),
+    porqueHouve4: z.string().min(2, {
+        message: "Não pode estar em branco",
+    }),
+    porqueHouve5: z.string().min(2, {
+        message: "Não pode estar em branco",
+    }),
+    porqueDetectada1: z.string().min(2, {
+        message: "Não pode estar em branco",
+    }),
+    porqueDetectada2: z.string().min(2, {
+        message: "Não pode estar em branco",
+    }),
+    porqueDetectada3: z.string().min(2, {
+        message: "Não pode estar em branco",
+    }),
+    porqueDetectada4: z.string().min(2, {
+        message: "Não pode estar em branco",
+    }),
+    porqueDetectada5: z.string().min(2, {
+        message: "Não pode estar em branco",
+    }),
+    porquePrevista1: z.string().min(2, {
+        message: "Não pode estar em branco",
+    }),
+    porquePrevista2: z.string().min(2, {
+        message: "Não pode estar em branco",
+    }),
+    porquePrevista3: z.string().min(2, {
+        message: "Não pode estar em branco",
+    }),
+    porquePrevista4: z.string().min(2, {
+        message: "Não pode estar em branco",
+    }),
+    porquePrevista5: z.string().min(2, {
+        message: "Não pode estar em branco",
+    }),
+
+    selectAtualizados: z.enum(['sim', 'nao'], {
+        message: "Alguma opção deve ser selecionada",
+    }),
+    atualizados: z.string().min(1, {
+        message: "Não pode estar em branco",
+    }),
+
+    item1: z.string().min(1, {
+        message: "Não pode estar em branco",
+    }),
+    item2: z.string().min(1, {
+        message: "Não pode estar em branco",
+    }),
+    item3: z.string().min(1, {
+        message: "Não pode estar em branco",
+    }),
+    item4: z.string().min(1, {
+        message: "Não pode estar em branco",
+    }),
+    item5: z.string().min(1, {
+        message: "Não pode estar em branco",
+    }),
+
+    correcao1: z.string().min(1, {
+        message: "Não pode estar em branco",
+    }),
+    correcao2: z.string().min(1, {
+        message: "Não pode estar em branco",
+    }),
+    correcao3: z.string().min(1, {
+        message: "Não pode estar em branco",
+    }),
+    correcao4: z.string().min(1, {
+        message: "Não pode estar em branco",
+    }),
+    correcao5: z.string().min(1, {
+        message: "Não pode estar em branco",
+    }),
+    
+    responsavel1: z.string().min(1, {
+        message: "Não pode estar em branco",
+    }),
+    responsavel2: z.string().min(1, {
+        message: "Não pode estar em branco",
+    }),
+    responsavel3: z.string().min(1, {
+        message: "Não pode estar em branco",
+    }),
+    responsavel4: z.string().min(1, {
+        message: "Não pode estar em branco",
+    }),
+    responsavel5: z.string().min(1, {
+        message: "Não pode estar em branco",
+    }),
+
+    prazo1: z.string().min(1, {
+        message: "Não pode estar em branco",
+    }),
+    prazo2: z.string().min(1, {
+        message: "Não pode estar em branco",
+    }),
+    prazo3: z.string().min(1, {
+        message: "Não pode estar em branco",
+    }),
+    prazo4: z.string().min(1, {
+        message: "Não pode estar em branco",
+    }),
+    prazo5: z.string().min(1, {
+        message: "Não pode estar em branco",
+    }),
+
+    conclusao1: z.string().min(1, {
+        message: "Não pode estar em branco",
+    }),
+    conclusao2: z.string().min(1, {
+        message: "Não pode estar em branco",
+    }),
+    conclusao3: z.string().min(1, {
+        message: "Não pode estar em branco",
+    }),
+    conclusao4: z.string().min(1, {
+        message: "Não pode estar em branco",
+    }),
+    conclusao5: z.string().min(1, {
+        message: "Não pode estar em branco",
+    }),
+
+    evidencias1: z.string().min(1, {
+        message: "Não pode estar em branco",
+    }),
+    evidencias2: z.string().min(1, {
+        message: "Não pode estar em branco",
+    }),
+    evidencias3: z.string().min(1, {
+        message: "Não pode estar em branco",
+    }),
+    evidencias4: z.string().min(1, {
+        message: "Não pode estar em branco",
+    }),
+    evidencias5: z.string().min(1, {
+        message: "Não pode estar em branco",
+    }),
+    
+    selectEncerramento: z.enum(['sim', 'nao'], {
+        message: "Alguma opção deve ser selecionada",
+    }),
+    encerramento: z.string().min(1, {
+        message: "Não pode estar em branco",
+    }),
+    responsavel: z.string().min(1, {
+        message: "Não pode estar em branco",
+    }),
+    verificacao: z.string().min(1, {
+        message: "Não pode estar em branco",
+    }),
 });
+
+
+export const DefaultValuesForm = {
+    numberRNC: "",
+            origem: "",
+            data: "",
+            setorCausa: "",
+            prazo: "",
+            codigoPeca: "",
+            quantidade: "",
+            tipo: "",
+            clienteFornecedor: "",
+            descricao: "",
+            numeroRNCcliente: "",
+            emitente: "",
+            selectContencao: "",
+            contencao: "",
+            locProducao: "",
+            qtdProducao: "",
+            locRecebimento: "",
+            qtdRecebimento: "",
+            locExpedicao: "",
+            qtdExpedicao: "",
+            locEstoque: "",
+            qtdEstoque: "",
+            locTransito: "",
+            qtdTransito: "",
+            locFornecedor: "",
+            qtdFornecedor: "",
+            locCliente: "",
+            qtdCliente: "",
+            locPecasEmCampo: "",
+            qtdPecasEmCampo: "",
+            itemsDisposicao: "",
+            
+            imagemNaoConforme: null,
+
+            analise: "",
+            dataAnalise: "",
+
+            maoDeObra: "",
+            metodoDeTrabalho: "",
+            maquina: "",
+            meioAmbiente: "",
+            materiaPrima: "",
+            medicao: "",
+
+            porqueHouve1: "",
+            porqueHouve2: "",
+            porqueHouve3: "",
+            porqueHouve4: "",
+            porqueHouve5: "",
+            porqueDetectada1: "",
+            porqueDetectada2: "",
+            porqueDetectada3: "",
+            porqueDetectada4: "",
+            porqueDetectada5: "",
+            porquePrevista1: "",
+            porquePrevista2: "",
+            porquePrevista3: "",
+            porquePrevista4: "",
+            porquePrevista5: "",
+
+            selectAtualizados: "",
+            atualizados: "",
+
+            item1: "",
+            item2: "",
+            item3: "",
+            item4: "",
+            item5: "",
+            correcao1: "",
+            correcao2: "",
+            correcao3: "",
+            correcao4: "",
+            correcao5: "",
+            responsavel1: "",
+            responsavel2: "",
+            responsavel3: "",
+            responsavel4: "",
+            responsavel5: "",
+            prazo1: "",
+            prazo2: "",
+            prazo3: "",
+            prazo4: "",
+            prazo5: "",
+            conclusao1: "",
+            conclusao2: "",
+            conclusao3: "",
+            conclusao4: "",
+            conclusao5: "",
+            evidencias1: "",
+            evidencias2: "",
+            evidencias3: "",
+            evidencias4: "",
+            evidencias5: "",
+
+            selectEncerramento: "",
+            encerramento: "",
+            responsavel: "",
+            verificacao: "",
+}

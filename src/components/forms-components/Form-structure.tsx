@@ -47,7 +47,7 @@ export const Register_RNC = () => {
                                 <FormBoxOne form={form} />
                                 <FormBoxTwo form={form} />
                                 <FormBoxThree form={form} />
-                                <FormBoxFour form={form} />
+                                {/* <FormBoxFour form={form} /> */}
                                 <FormBoxFive form={form} />
                                 <FormBoxFiveOne form={form} />
                                 <FormBoxFiveTwo form={form} />

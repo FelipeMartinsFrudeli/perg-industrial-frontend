@@ -1,64 +1,66 @@
-import {
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import React from "react";
+import { useState } from 'react';
+import { AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { InputField } from "../form-fields";
 
 export function FormBoxFiveTwo({ form }: any) {
-  const items = [];
-  for (let index = 1; index <= 5; index++) {
-    items.push(
-      <React.Fragment key={index}>
-        <InputField
-          form={form}
-          name={`porqueHouve${index}`}
-          style="col-span-4"
-          label=""
-          placeholder={`Digite do porquê houve n°${index} aqui`}
-          type="text"
-        />
-        <InputField
-          form={form}
-          name={`porqueDetectada${index}`}
-          style="col-span-4"
-          label=""
-          placeholder={`Digite do porquê não foi detectado n°${index} aqui`}
-          type="text"
-        />
-        <InputField
-          form={form}
-          name={`porquePrevista${index}`}
-          style="col-span-4"
-          label=""
-          placeholder={`Digite do porquê não foi prevista n°${index} aqui`}
-          type="text"
-        />
-      </React.Fragment>
-    );
-  }
-  return (
-    <>
-      <div className="container grid grid-cols-12 flex items-center gap-4">
-        <AccordionItem value="item-7" className="col-span-12">
-          <AccordionTrigger>5.2 - ANÁLISE DOS 5 PORQUÊS</AccordionTrigger>
-          <hr />
-          <AccordionContent className="w-auto mx-1 items-center flex grid grid-cols-12 gap-6 mt-4">
-            <p className="col-span-4 font-bold text-center text-lg mt-4">
-              Porquê houve a falha?
-            </p>
-            <p className="col-span-4 font-bold text-center text-lg mt-4">
-              Porquê a falha não foi detectada?
-            </p>
-            <p className="col-span-4 font-bold text-center text-lg mt-4">
-              Porquê a falha não foi prevista?
-            </p>
+  const [linha, setLinha] = useState([{ falha: '', falhaDetectada: '', falhaPrevista: '' }]);
 
-            {items}
-          </AccordionContent>
-        </AccordionItem>
-      </div>
-    </>
+  function adicionarLinha() {
+    setLinha([...linha, { falha: '', falhaDetectada: '', falhaPrevista: '' }]);
+  };
+
+  return (
+    <div className="container grid grid-cols-12 gap-4">
+      <AccordionItem value="item-5.2" className="col-span-12">
+        <AccordionTrigger>5.2 - ANÁLISE DOS 5 PORQUÊS</AccordionTrigger>
+        <hr />
+        <AccordionContent className="mx-1 mt-4">
+          {linha.map((row, index) => (
+            <div key={index} className="grid grid-cols-12 gap-4 mb-4">
+              <div className="col-span-12 sm:col-span-4 flex flex-col items-center">
+                <InputField
+                  form={form}
+                  name={`falha-${index}`}
+                  label="Por que houve a falha?"
+                  type="text"
+                  placeholder={`falha-${index+1}`}
+                  className="mt-2"
+                />
+              </div>
+              <div className="col-span-12 sm:col-span-4 flex flex-col items-center">
+                <InputField
+                  form={form}
+                  name={`falhaDetectada-${index}`}
+                  label="Por que a falha não foi detectada?"
+                  type="text"
+                  placeholder={`falha-${index+1}`}
+                  className="mt-2"
+                />
+              </div>
+              <div className="col-span-12 sm:col-span-4 flex flex-col items-center">
+                <InputField
+                  form={form}
+                  name={`falhaPrevista-${index}`}
+                  label="Por que a falha não foi prevista?"
+                  type="text"
+                  placeholder={`falha-${index+1}`}
+                  className="mt-2"
+                />
+              </div>
+            </div>
+          ))}
+          
+          <div className="flex justify-end mt-4">
+            <button
+              type="button"
+              onClick={adicionarLinha}
+              className="bg-gray-400 text-white px-4 py-2 rounded hover:bg-gray-500"
+            >
+              +
+            </button>
+          </div>
+        </AccordionContent>
+      </AccordionItem>
+    </div>
   );
 }

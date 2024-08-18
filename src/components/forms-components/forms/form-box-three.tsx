@@ -1,5 +1,6 @@
 import { AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { InputField } from "../form-fields";
+import { RadioField } from "../form-fields";
+import { radioLib } from "@/lib/radio-lib";
 
 export function FormBoxThree({ form }: any) {
 
@@ -12,54 +13,7 @@ export function FormBoxThree({ form }: any) {
                     <div className="grid grid-cols-12 gap-4">
                         <div className="col-span-12">
                             <div className="grid grid-cols-12 gap-4">
-                                <div className="col-span-12 sm:col-span-3 flex items-center">
-                                    <label className="flex items-center space-x-2">
-                                        <InputField
-                                            form={form}
-                                            name="disposicao"
-                                            label=""
-                                            type="radio"
-                                            value="sucatear"
-                                        />
-                                        <span className="ml-2">Sucatear</span>
-                                    </label>
-                                </div>
-                                <div className="col-span-12 sm:col-span-3 flex items-center">
-                                    <label className="flex items-center space-x-2">
-                                        <InputField
-                                            form={form}
-                                            name="disposicao"
-                                            label=""
-                                            type="radio"
-                                            value="retrabalho"
-                                        />
-                                        <span className="ml-2">Retrabalho</span>
-                                    </label>
-                                </div>
-                                <div className="col-span-12 sm:col-span-3 flex items-center">
-                                    <label className="flex items-center space-x-2">
-                                        <InputField
-                                            form={form}
-                                            name="disposicao"
-                                            label=""
-                                            type="radio"
-                                            value="devolver"
-                                        />
-                                        <span className="ml-2">Devolver</span>
-                                    </label>
-                                </div>
-                                <div className="col-span-12 sm:col-span-3 flex items-center">
-                                    <label className="flex items-center space-x-2">
-                                        <InputField
-                                            form={form}
-                                            name="disposicao"
-                                            label=""
-                                            type="radio"
-                                            value="naoAplicavel"
-                                        />
-                                        <span className="ml-2">Não Aplicável</span>
-                                    </label>
-                                </div>
+                                <RadioField form={form} name="itemsDisposicao" objects={radioLib}/>
                             </div>
                         </div>
                     </div>

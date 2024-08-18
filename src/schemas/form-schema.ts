@@ -97,9 +97,9 @@ export const FormSchema = z.object({
         message: "Não pode estar em branco",
     }),
 
-    itemsDisposicao: z.array(z.string()).refine((value) => value.some((item) => item), {
-        message: "Você deve selecionar algo",
-    }),
+    itemsDisposicao: z.enum(["sucatear", "retrabalho", "devolver", "naoAplicavel"], {
+        required_error: "Você deve selecionar algo",
+      }),
 
     imagemNaoConforme: z.instanceof(File)
         .refine(file => file.type.startsWith('image/'), {
@@ -329,6 +329,7 @@ export const DefaultValuesForm = {
     qtdCliente: "",
     locPecasEmCampo: "",
     qtdPecasEmCampo: "",
+
     itemsDisposicao: "",
 
     imagemNaoConforme: null,

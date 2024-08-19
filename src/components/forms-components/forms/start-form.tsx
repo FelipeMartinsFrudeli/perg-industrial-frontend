@@ -4,9 +4,9 @@ import { InputField } from "../form-fields"
 export function StartForm({ form }: any) {
     return (
         <>
-            <div className="col-span-10 col-start-2 flex items-center gap-4">
+            <div className="col-span-10 col-start-2 items-center gap-4">
 
-                <div className="container mx-auto grid grid-cols-12 flex items-center gap-10">
+                <div className="container mx-auto grid grid-cols-12 items-center gap-10">
 
                     <InputField form={form} name="numberRNC" style="col-span-6" label="Número RNC" placeholder="Digite o seu número aqui" type="number" />
 

@@ -98,7 +98,7 @@ export const FormSchema = z.object({
     }),
 
     itemsDisposicao: z.enum(["sucatear", "retrabalho", "devolver", "naoAplicavel"], {
-        required_error: "Você deve selecionar algo",
+        message: "Você deve selecionar algo",
       }),
 
     imagemNaoConforme: z.instanceof(File)
@@ -332,7 +332,7 @@ export const DefaultValuesForm = {
 
     itemsDisposicao: "",
 
-    imagemNaoConforme: null,
+    imagemNaoConforme: "",
 
     analise: "",
     dataAnalise: "",

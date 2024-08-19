@@ -41,13 +41,13 @@ export const Register_RNC = () => {
             <div className="container-xl mx-auto grid grid-cols-12 flex items-center gap-4">
                 <div className="forms-box col-span-10 col-start-2 rounded-xl mb-20">
                     <Form {...form}>
-                        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5 pt-14 pb-14 container-xl mx-auto grid grid-cols-12 flex items-center gap-4">
+                        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5 pt-14 pb-14 container-xl mx-auto grid grid-cols-12 items-center gap-4">
                             <StartForm form={form} />
                             <Accordion type="single" collapsible className="col-span-10 col-start-2">
                                 <FormBoxOne form={form} />
                                 <FormBoxTwo form={form} />
                                 <FormBoxThree form={form} />
-                                {/* <FormBoxFour form={form} /> */}
+                                <FormBoxFour form={form} />
                                 <FormBoxFive form={form} />
                                 <FormBoxFiveOne form={form} />
                                 <FormBoxFiveTwo form={form} />

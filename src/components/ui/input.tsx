@@ -1,6 +1,8 @@
 import * as React from "react"
 import { cn } from "@/lib/utils"
 import { Search } from "lucide-react"
+import { FormField, LabelField } from "./form"
+import { useFormContext } from "react-hook-form"
 
 export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {}
 
@@ -47,4 +49,28 @@ const SearchInput = React.forwardRef<HTMLInputElement, InputProps>(({ className,
 ))
 SearchInput.displayName = "SearchInput"
 
-export { Input, SearchInput }
+
+type InputFieldProps = {
+  name: string
+  label: string
+  placeholder: string
+  type?: string
+  className?: string
+}
+
+function InputField({ name, label, placeholder, type, className }: InputFieldProps) {
+  const { control } = useFormContext();
+  return (
+    <FormField
+      control={control}
+      name={name}
+      render={({ field }) => (
+        <LabelField label={label} className={className}>
+          <Input placeholder={placeholder} type={ type ? type : 'text' } {...field} />
+        </LabelField>
+      )}
+    />
+  );
+}
+
+export { Input, SearchInput, InputField }

@@ -164,6 +164,22 @@ const FormMessage = React.forwardRef<
 })
 FormMessage.displayName = "FormMessage"
 
+interface LabelProps {
+  label?: string,
+  className?: string,
+  children: React.ReactElement
+}
+
+const LabelField = (({ label, className, children }: LabelProps) => (
+  <FormItem className={cn(className)}>
+    <FormLabel className="font-normal text-base">{label || ""}</FormLabel>
+    <FormControl>
+      { children }
+    </FormControl>
+    <FormMessage />
+  </FormItem>
+))
+
 export {
   useFormField,
   Form,
@@ -173,4 +189,5 @@ export {
   FormDescription,
   FormMessage,
   FormField,
+  LabelField
 }

@@ -5,7 +5,6 @@ export function FormBoxOne({ form }: any) {
     return (
         <>
             <div className="container grid grid-cols-12 flex items-center gap-4">
-
                     <AccordionItem value="item-1" className="col-span-12">
                         <AccordionTrigger>1 - DETALHES DA NÃO CONFORMIDADE</AccordionTrigger>
                         <hr/>

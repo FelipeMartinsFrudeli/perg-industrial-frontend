@@ -1,4 +1,5 @@
-export const radioLib = [
+
+export const dipositionsOptions = [
     {
         id: 1,
         name: "sucatear",

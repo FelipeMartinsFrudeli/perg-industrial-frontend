@@ -2,10 +2,9 @@ import { AccordionContent, AccordionItem, AccordionTrigger } from "@/components/
 import { RadioField } from "../form-fields";
 import { radioLib } from "@/lib/radio-lib";
 
-export function FormBoxThree({ form }: any) {
-
+export function FormBoxThree() {
     return (
-        <div className="container grid grid-cols-12 flex items-center gap-4">
+        <div className="container grid grid-cols-12 items-center gap-4">
             <AccordionItem value="item-3" className="col-span-12">
                 <AccordionTrigger>3 - DISPOSIÇÃO</AccordionTrigger>
                 <hr />
@@ -13,7 +12,7 @@ export function FormBoxThree({ form }: any) {
                     <div className="grid grid-cols-12 gap-4">
                         <div className="col-span-12">
                             <div className="grid grid-cols-12 gap-4">
-                                <RadioField form={form} name="itemsDisposicao" objects={radioLib}/>
+                                <RadioField name="itemsDisposicao" options={radioLib}/>
                             </div>
                         </div>
                     </div>

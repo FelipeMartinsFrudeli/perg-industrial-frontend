@@ -9,6 +9,9 @@ import Analytics from "./Analytics";
 import Diagram from "./Diagram";
 import WhyAnalytics from "./WhyAnalytics";
 import Documetation from "./Documentation";
+import CorrectiveActions from "./CorrectiveActions";
+import Risks from "./Risks";
+import Report from "./Report";
 import { Accordion } from "@radix-ui/react-accordion";
 
 import { useForm, FormProvider } from 'react-hook-form';
@@ -57,6 +60,19 @@ function RNC() {
               <AccordionSection title="5.3 - DOCUMENTAÇÃO">
                 <Documetation />
               </AccordionSection>
+
+              <AccordionSection title="6 - AÇÕES CORRETIVAS">
+                <CorrectiveActions />
+              </AccordionSection>
+
+              <AccordionSection title="7 - RISCOS E OPORTUNIDADES">
+                <Risks />
+              </AccordionSection>
+
+              <AccordionSection title="8 - FECHAMENTO DO RELATÓRIO">
+                <Report />
+              </AccordionSection>
+
             </Accordion>
           </div>
         </div>

@@ -1,4 +1,4 @@
-export function Title() {
+function Title() {
     return (
         <>
             <div className="container-xl mx-auto grid grid-cols-12 flex items-center gap-4">
@@ -7,3 +7,5 @@ export function Title() {
         </>
     )
 }
+
+export default Title;

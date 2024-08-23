@@ -1,6 +1,14 @@
 import * as React from "react"
 import * as SelectPrimitive from "@radix-ui/react-select"
 import { Check, ChevronDown, ChevronUp } from "lucide-react"
+import { useFormContext } from "react-hook-form";
+
+import {
+  FormControl,
+  FormField,
+  FormItem,
+  FormMessage,
+} from "@/components/ui/form";
 
 import { cn } from "@/lib/utils"
 
@@ -144,6 +152,59 @@ const SelectSeparator = React.forwardRef<
   />
 ))
 SelectSeparator.displayName = SelectPrimitive.Separator.displayName
+
+type SelectProps = {
+  name: string
+  placeholder: string
+  firstValue: string,
+  secondValue: string,
+  firstSelect: string,
+  secondSelect: string,
+  className: string,
+  onSelectChange: (value: string) => void;
+};
+
+export default function SelectTwoField({
+  name,
+  placeholder,
+  firstValue,
+  secondValue,
+  firstSelect,
+  secondSelect,
+  className,
+  onSelectChange,
+}: SelectProps) {
+  const { control } = useFormContext();
+
+  return (
+    <FormField
+      control={control}
+      name={name}
+      render={({ field }) => (
+        <FormItem className={className}>
+          <Select
+            onValueChange={(value: string) => {
+              field.onChange(value);
+              onSelectChange(value);
+            }}
+            defaultValue={field.value}
+          >
+            <FormControl>
+              <SelectTrigger>
+                <SelectValue placeholder={placeholder} />
+              </SelectTrigger>
+            </FormControl>
+            <SelectContent>
+              <SelectItem value={firstValue}>{firstSelect}</SelectItem>
+              <SelectItem value={secondValue}>{secondSelect}</SelectItem>
+            </SelectContent>
+          </Select>
+          <FormMessage />
+        </FormItem>
+      )}
+    />
+  );
+}
 
 export {
   Select,

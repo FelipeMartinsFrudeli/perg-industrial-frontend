@@ -4,6 +4,16 @@ import { Circle } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
+import {
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+
+import { useFormContext } from "react-hook-form";
+
 const RadioGroup = React.forwardRef<
   React.ElementRef<typeof RadioGroupPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Root>
@@ -38,5 +48,54 @@ const RadioGroupItem = React.forwardRef<
   )
 })
 RadioGroupItem.displayName = RadioGroupPrimitive.Item.displayName
+
+
+type RadioOption = {
+  id: number;
+  name: string;
+  label: string;
+};
+
+type RadioFieldProps = {
+  name: string;
+  options: RadioOption[];
+};
+
+export function RadioField({ name, options }: RadioFieldProps) {
+  const { control } = useFormContext();
+
+  return (
+    <FormField
+      control={control}
+      name={name}
+      render={({ field }) => (
+        <FormItem className="col-span-12 grid grid-cols-12 gap-2 items-center space-y-0">
+          <FormControl>
+            <RadioGroup
+              value={field.value || ""}
+              onValueChange={field.onChange}
+              className="col-span-12 grid grid-cols-12 gap-2 items-center space-y-0"
+            >
+              {options.map((option) => (
+                <FormItem
+                  key={option.id}
+                  className="col-span-3 space-y-0 space-x-3 align-middle"
+                >
+                  <FormControl>
+                    <RadioGroupItem value={option.name} />
+                  </FormControl>
+                  <FormLabel className="font-normal w-2/12">
+                    {option.label}
+                  </FormLabel>
+                </FormItem>
+              ))}
+            </RadioGroup>
+          </FormControl>
+          <FormMessage className="col-span-12 w-64" />
+        </FormItem>
+      )}
+    />
+  );
+}
 
 export { RadioGroup, RadioGroupItem }

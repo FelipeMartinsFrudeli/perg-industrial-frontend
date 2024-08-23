@@ -1,48 +1,66 @@
-import React from "react";
+import AccordionSection from "../AccordionSection";
+import Title from "@/components/forms-components/title";
 import Action from "./Action";
 import Details from "./Details";
 import Disposition from "./Disposition";
 import Header from "./Header";
-import {
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+import ImageRNC from "./ImageRNC";
+import Analytics from "./Analytics";
+import Diagram from "./Diagram";
+import WhyAnalytics from "./WhyAnalytics";
+import Documetation from "./Documentation";
+import { Accordion } from "@radix-ui/react-accordion";
 
-type AccordionProps = {
-  title: string;
-  children: React.ReactElement;
-};
+import { useForm, FormProvider } from 'react-hook-form';
 
-const Accordion = ({ title, children }: AccordionProps) => (
-  <div className="container grid grid-cols-12 items-center gap-4">
-    <AccordionItem value={React.useId()} className="col-span-12">
-      <AccordionTrigger>{title}</AccordionTrigger>
-    </AccordionItem>
-    <hr />
-    <AccordionContent className="w-auto mx-1 grid grid-cols-12 gap-10 mt-4">
-      {children}
-    </AccordionContent>
-  </div>
-);
+import '../../../assets/styles/forms.css'
+import '../../../index.css'
+
 
 function RNC() {
+  const methods = useForm();
   return (
-    <div>
-      <Header />
+    <FormProvider {...methods}>
+      <Title />
+      <div className="container-xl mx-auto grid grid-cols-12 items-center gap-4">
+        <div className="forms-box col-span-10 col-start-2 rounded-xl mb-20">
+            <Header />
+            <Accordion type="single" collapsible>
+              <AccordionSection title="1 - DETALHES DA NÃO CONFORMIDADE">
+                <Details />
+              </AccordionSection>
 
-      <Accordion title="1 - DETALHES DA NÃO CONFORMIDADE">
-        <Details />
-      </Accordion>
-      
-      <Accordion title="2 - AÇÃO DE CONTENÇÃO">
-        <Action />
-      </Accordion>
-      
-      <Accordion title="3 - DISPOSIÇÃO">
-        <Disposition />
-      </Accordion>
-    </div>
+              <AccordionSection title="2 - AÇÃO DE CONTENÇÃO">
+                <Action />
+              </AccordionSection>
+
+              <AccordionSection title="3 - DISPOSIÇÃO">
+                <Disposition />
+              </AccordionSection>
+
+              <AccordionSection title="4 - IMAGEM DA PEÇA NÃO CONFORME">
+                <ImageRNC />
+              </AccordionSection>
+
+              <AccordionSection title="5 - ANÁLISE DE CAUSA RAIZ (REAL MOTIVO DA FALHA)">
+                <Analytics />
+              </AccordionSection>
+
+              <AccordionSection title="5.1 - DIAGRAMA DE CAUSA E EFEITO">
+                <Diagram />
+              </AccordionSection>
+
+              <AccordionSection title="5.2 - ANÁLISE DOS 5 PORQUÊS">
+                <WhyAnalytics />
+              </AccordionSection>
+
+              <AccordionSection title="5.3 - DOCUMENTAÇÃO">
+                <Documetation />
+              </AccordionSection>
+            </Accordion>
+          </div>
+        </div>
+    </FormProvider>
   );
 }
 

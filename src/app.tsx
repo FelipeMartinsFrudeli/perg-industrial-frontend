@@ -3,13 +3,15 @@
 // import { Toaster } from 'sonner'
 import { QueryClientProvider } from '@tanstack/react-query'
 import { queryClient } from './lib/react-query'
-import RNC from './components/forms/RNC/index.tsx'
+// import RNC from './components/forms/RNC/index.tsx'
 import './assets/styles/font.css'
+import Login from './components/login.tsx'
 
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <RNC />
+      {/* <RNC /> */}
+      <Login />
     </QueryClientProvider>
   )
 }

@@ -6,12 +6,14 @@ import { queryClient } from './lib/react-query'
 // import RNC from './components/forms/RNC/index.tsx'
 import './assets/styles/font.css'
 import Login from './components/login.tsx'
+import Register from './components/Register.tsx'
 
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
       {/* <RNC /> */}
-      <Login />
+      {/* <Login /> */}
+      <Register />
     </QueryClientProvider>
   )
 }

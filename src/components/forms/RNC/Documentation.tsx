@@ -16,30 +16,6 @@ function Documetation() {
             {showContentReason && (
                 <>
                      <InputField name="atualizado" label="Se sim, quais?" placeholder="Digite quais foram aqui" className="col-span-12"/>
-
-                     <InputField name="producao" label="Produção" placeholder="Digite a localização da produção aqui" className="col-span-6" />
-                     <InputField name="qtd" label="Quantidade" placeholder="Digite a quantidade aqui" className="col-span-6" />
-
-                     <InputField name="recebimento" label="Recebimento" placeholder="Digite a localização do recebimento aqui" className="col-span-6" />
-                     <InputField name="qtd" label="Quantidade" placeholder="Digite a quantidade aqui" className="col-span-6" />
-
-                     <InputField name="expedicao" label="Expedicao" placeholder="Digite a localização da expedição aqui" className="col-span-6" />
-                     <InputField name="qtd" label="Quantidade" placeholder="Digite a quantidade aqui" className="col-span-6" />
-
-                     <InputField name="estoque" label="Estoque" placeholder="Digite a localização do estoque aqui" className="col-span-6" />
-                     <InputField name="qtd" label="Quantidade" placeholder="Digite a quantidade aqui" className="col-span-6" />
-
-                     <InputField name="transito" label="Trânsito" placeholder="Digite a localização do trânsito" className="col-span-6" />
-                     <InputField name="qtd" label="Quantidade" placeholder="Digite a quantidade aqui" className="col-span-6" />
-
-                     <InputField name="fornecedor" label="Fornecedor" placeholder="Digite a localização do fornecedor aqui" className="col-span-6" />
-                     <InputField name="qtd" label="Quantidade" placeholder="Digite a quantidade aqui" className="col-span-6" />
-
-                     <InputField name="cliente" label="Cliente" placeholder="Digite a localização do cliente" className="col-span-6" />
-                     <InputField name="qtd" label="Quantidade" placeholder="Digite a quantidade aqui" className="col-span-6" />
-
-                     <InputField name="pecasdecampo" label="Peças em Campo" placeholder="Digite a localização das peças em campo" className="col-span-6" />
-                     <InputField name="qtd" label="Quantidade" placeholder="Digite a quantidade aqui" className="col-span-6" />
                 </>
             )}
         </>

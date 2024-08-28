@@ -1,4 +1,4 @@
-import { ImageUpload } from "@/components/forms-components/form-fields";
+import { ImageUpload } from "@/components/ui/form-fields";
 
 function ImageRNC() {
   return (

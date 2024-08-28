@@ -1,6 +1,6 @@
 import { FormProvider, useForm } from "react-hook-form";
-import { InputField } from "./ui/input";
-import { Button } from "./ui/button";
+import { InputField } from "../ui/input";
+import { Button } from "../ui/button";
 
 function Login() {
     const methods = useForm()

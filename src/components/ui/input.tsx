@@ -66,7 +66,7 @@ function InputField({ name, label, placeholder, type, className }: InputFieldPro
       name={name}
       render={({ field }) => (
         <LabelField label={label} className={className}>
-          <Input placeholder={placeholder} type={ type ? type : 'text' } {...field} />
+          <Input placeholder={placeholder} type={ type ? type : 'text' } {...field}/>
         </LabelField>
       )}
     />

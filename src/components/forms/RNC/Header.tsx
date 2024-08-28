@@ -1,7 +1,7 @@
 import { InputField } from "@/components/ui/input";
 function Header() {
   return (
-    <div className="col-span-10 col-start-2 flex items-center gap-4 my-10">
+    <div className="col-span-12 flex items-center gap-4 my-10">
       <div className="container mx-auto grid grid-cols-12 items-center gap-10">
           <InputField name="origin" label="Origem" placeholder="Digite a origem aqui" className="col-span-6"/>
           <InputField name="date" label="Data" placeholder="Data do registro" className="col-span-6"/>

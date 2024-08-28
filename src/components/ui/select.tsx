@@ -161,7 +161,7 @@ type SelectProps = {
   firstSelect: string,
   secondSelect: string,
   className: string,
-  onSelectChange: (value: string) => void;
+  onSelectChange?: (value: string) => void;
 };
 
 export default function SelectTwoField({
@@ -185,7 +185,10 @@ export default function SelectTwoField({
           <Select
             onValueChange={(value: string) => {
               field.onChange(value);
-              onSelectChange(value);
+              if (onSelectChange) {
+                onSelectChange(value);
+              }
+
             }}
             defaultValue={field.value}
           >

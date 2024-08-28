@@ -6,27 +6,6 @@ import { useFormContext } from "react-hook-form";
 import React, { useState } from "react";
 
 
-// export function TextAreaField({ form, name, style, label, placeholder }: any) {
-//   return (
-//     <FormField
-//       control={form.control}
-//       name={name}
-//       render={({ field }) => (
-//         <FormItem className={style}>
-//           <FormLabel>{label}</FormLabel>
-//           <FormControl>
-//             <Textarea placeholder={placeholder} {...field} />
-//           </FormControl>
-//           <FormMessage />
-//         </FormItem>
-//       )}
-//     />
-//   );
-// }
-
-
-
-
 type ImageUploadProps = {
   name: string;
   label: string;

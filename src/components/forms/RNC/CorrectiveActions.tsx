@@ -4,7 +4,7 @@ function CorrectiveActions() {
     return (
         <>
             <div className="container">
-                <div className="overflow-x-auto mb-4">
+                <div className="overflow-x-scroll mb-4">
                     <div className="flex items-center gap-6 min-w-max">
                         <div className="min-w-[300px]">
                             <InputField name="maoDeObra" label="Mão de Obra" placeholder="Digite a mão de obra aqui" className="w-full" />

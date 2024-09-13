@@ -47,7 +47,7 @@ function WhyAnalytics() {
                 </div>
             ))}
 
-            <div className="col-span-6 col-start-7 mt-4 space-x-4">
+            <div className="col-span-7 col-start-6 space-x-4">
                 <div className="flex justify-end space-x-4">
                     {linha.length > 1 && (
                         <button
